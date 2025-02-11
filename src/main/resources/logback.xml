@@ -1,0 +1,34 @@
+<configuration>
+	<property name="LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg%n" />
+	<property name="LOCAL_HOME" value="C:/logs" />
+    <appender name = "myConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                ${LOG_PATTERN}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name = "myFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>
+            ${LOCAL_HOME}/product-service.log
+        </file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOCAL_HOME}/archive/product/product-service-%d{yy-MM-dd_HH-mm}.%i.log</fileNamePattern>
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>10</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>
+                ${LOG_PATTERN}
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="myConsoleAppender" />
+        <appender-ref ref="myFileAppender" />
+    </root>
+
+
+</configuration>

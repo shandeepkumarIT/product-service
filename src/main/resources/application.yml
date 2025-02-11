@@ -28,3 +28,12 @@ management:
     web:
       exposure:
         include: prometheus
+
+# Swagger
+springdoc:
+  api-docs:
+    enabled: true
+    path: /product/v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /product/swagger-ui.html

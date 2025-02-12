@@ -40,7 +40,8 @@ public class ProductService {
 		CommonResponse commonResponse = new CommonResponse();
 		commonResponse.setStatus("Success");
 		commonResponse.setStatus_code(00);
-		commonResponse.setStatus_description("Successfully received all products");
+		commonResponse.setTitle("Product Details");		
+		commonResponse.setMessage("Successfully received all products");
 		commonResponse.setResponse(result);
 		return commonResponse;
 	}
